@@ -1,8 +1,13 @@
-#PROYECTO DE ANALISIS DE SEGUROS
+                                #PROYECTO DE ANALISIS DE SEGUROS
 
---ESTO ES PARTE DE "JUGAR CON LA IA" PARA FOMENTAR EL ANALISIS CRITICO DE UN CASO DE NEGOCIO TARDE ALREDEDOR DE 5H SIN AYUDA SOLAMENTE CONFIRMANDO ALGUNOS DATOS PARA SABER QUE IBAMOS POR EL CAMINO CORRECTO.
+--ESTO ES PARTE DE "JUGAR CON LA IA" PARA FOMENTAR EL ANALISIS CRITICO DE UN CASO DE NEGOCIO TARDE 
+--ALREDEDOR DE 5H SIN AYUDA SOLAMENTE CONFIRMANDO ALGUNOS DATOS PARA SABER QUE IBAMOS POR EL CAMINO CORRECTO.
 
--- EMPECE CON UN ENFOQUE ERRONEO PORQUE NO PREGUNTE ¿QUE LE LLAMAMOS PERDIDAS?, ¿QUE TIPO DE POLIZAS MANEJAMOS?, ¿EN LA EXPERIENCIA HA NOTADO ALGUN INCREMENTO EN ALGUNA POLIZA EN PARTICULAR?,  Y COMENCE CON EL ANALISIS SIMPLEMENTE TOMANDO EN CUENTA TODA LA DATA PENSADO QUE TODO LO PAGADO Y LOS NUMEROS ERA SINONIMO DE PERDIDA, ERROR PERDIDA LE LLAMABAN A LAS POLIZAS QUE HABIAN SIDO PAGADAS CON INDICIO DE FRAUDE POR ESO TENEMOS CIFRAS GRANDISIMAS AL PRINCIPIO
+-- EMPECE CON UN ENFOQUE ERRONEO PORQUE NO PREGUNTE ¿QUE LE LLAMAMOS PERDIDAS?, 
+--¿QUE TIPO DE POLIZAS MANEJAMOS?, ¿EN LA EXPERIENCIA HA NOTADO ALGUN INCREMENTO EN ALGUNA POLIZA EN PARTICULAR?,
+--Y COMENCE CON EL ANALISIS SIMPLEMENTE TOMANDO EN CUENTA TODA LA DATA PENSADO QUE TODO LO PAGADO 
+--Y LOS NUMEROS ERA SINONIMO DE PERDIDA, ERROR PERDIDA LE LLAMABAN A LAS POLIZAS QUE HABIAN SIDO PAGADAS CON 
+--INDICIO DE FRAUDE POR ESO TENEMOS CIFRAS GRANDISIMAS AL PRINCIPIO
 
 
 --¿En qué tipos de pólizas o perfiles de clientes estamos teniendo las pérdidas más altas por reclamos?
@@ -20,8 +25,10 @@
 --4	Business	43	3.3165156E7 706.7
 --5	Farmer	  50	3.2504694E7 694.85
 
-
---Mira, te hablo con la mano en el corazón! Lo que más me quita el sueño en este preciso instante son los reclamos aprobados en seguros de autos (Motor) y salud (Health). Los reportes globales me muestran que ahí es donde se está concentrando el grueso de la plata que estamos pagando, ¡las cifras están disparadas!
+--Esta es la solicitud.
+--Mira, te hablo con la mano en el corazón! Lo que más me quita el sueño en este preciso instante son los 
+--reclamos aprobados en seguros de autos (Motor) y salud (Health). Los reportes globales me muestran que ahí es 
+--donde se está concentrando el grueso de la plata que estamos pagando, ¡las cifras están disparadas!
 
 ---------------------------------------------------------------------------------
 --REVISAMOS EL ESTADO INDICADORES DE FRAUDE (TARDE ALREDEDOR DE 3H SOLAMENTE ESCRIBIR ESA CONSULTA BASICA PERO CON LOGICA DE NEGOCIO)
@@ -80,7 +87,9 @@ FROM `portfolioproyect-505419.fraudeseguros.Reclamos`;
 SELECT  count(*)
 FROM `portfolioproyect-505419.fraudeseguros.Cliente`;
 -----------------------------------------------------------------------------------
---AQUI ESTABA DUDANDO DE LA CONSULTA, POR ESO DECIDI SACAR LOS DISTINTOS DE VARIAS COLUMNAS PARA SABER SI CONCORDABAN CON LAS CONSULTAS ANTERIORES Y SI AHI YA QUEDE MAS TRANQUILO SABIENDO QUE AL TENER LOS DISTINTOS MANEJABAN LOS MISMO MONTOS.
+--AQUI ESTABA DUDANDO DE LA CONSULTA, POR ESO DECIDI SACAR LOS DISTINTOS DE VARIAS COLUMNAS PARA SABER 
+--SI CONCORDABAN CON LAS CONSULTAS ANTERIORES Y SI AHI YA QUEDE MAS TRANQUILO SABIENDO 
+--QUE AL TENER LOS DISTINTOS MANEJABAN LOS MISMO MONTOS.
 
 --Revisar reclamos unicos y cuanto se ha pagado. concuerda con el monto que vimos anteriormente
 SELECT distinct claim_id,customer_id,claim_date,claim_amount, status, fraud_flag, sum(settlement_amount) as MontoEntregado,
